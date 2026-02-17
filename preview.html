@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Preview</title>
+    <link rel="stylesheet" href="preview.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="preview-container">
+        <div class="control-bar">
+            <div class="device-info">
+                <span id="device-name">iPhone 14 Pro</span>
+                <span id="device-dimensions">393 × 852</span>
+                <span id="device-orientation">Portrait</span>
+                <span id="device-zoom">100%</span>
+            </div>
+            <div class="controls">
+                <button id="reload-btn" class="control-btn" title="Reload (Ctrl+R)">
+                    <i class="fas fa-redo"></i>
+                </button>
+                <button id="rotate-btn" class="control-btn" title="Rotate (R)">
+                    <i class="fas fa-undo"></i>
+                </button>
+                <button id="close-btn" class="control-btn" title="Close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="device-frame" class="device-frame iphone-frame">
+
+            <div class="device-screen">
+                <!-- CAMERA ENDI TO‘G‘RI JOYDA -->
+                <div id="camera-overlay" class="camera-overlay dynamic-island-overlay"></div>
+
+                <iframe id="preview-iframe" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                    allow="geolocation; microphone; camera; midi; encrypted-media">
+                </iframe>
+                <div class="status-bar">
+                    <div class="status-left">
+                        <span id="status-time">12:00</span>
+                    </div>
+                    <div class="status-right">
+                        <div class="signal">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+                        <div class="wifi"></div>
+                        <div class="battery">
+                            <div class="battery-level" id="battery-level"></div>
+                            <div class="battery-tip"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="loading-overlay">
+                    <div class="spinner"></div>
+                    <p>Loading preview...</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="devices.js"></script>
+    <script src="preview.js"></script>
+</body>
+
+</html>

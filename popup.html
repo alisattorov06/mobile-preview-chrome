@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Preview</title>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="popup-container">
+        <h1><i class="fas fa-mobile-alt"></i> Mobile Preview</h1>
+
+        <div class="control-group">
+            <label for="url-input"><i class="fas fa-globe"></i> Preview URL</label>
+            <div class="input-group">
+                <input type="text" id="url-input" placeholder="https://example.com or current tab">
+                <button id="use-current-tab" class="btn-small" title="Use current tab URL">
+                    <i class="fas fa-external-link-alt"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label for="device-select"><i class="fas fa-mobile"></i> Device</label>
+            <select id="device-select" class="dropdown">
+                <option value="iphone14">iPhone 14 Pro (393×852)</option>
+                <option value="iphone13">iPhone 13 (390×844)</option>
+                <option value="samsungS23">Samsung Galaxy S23 (360×780)</option>
+                <option value="samsungS23Ultra">Samsung Galaxy S23 Ultra (412×874)</option>
+                <option value="pixel7">Google Pixel 7 (412×915)</option>
+                <option value="oneplus11">OnePlus 11 (480×1032)</option>
+                <option value="custom">Custom Device</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="camera-select"><i class="fas fa-camera"></i> Camera Style</label>
+            <select id="camera-select" class="dropdown">
+                <option value="dynamic-island">Dynamic Island (iPhone 14)</option>
+                <option value="notch">Notch (iPhone 13/X)</option>
+                <option value="hole-punch">Hole Punch (Samsung)</option>
+                <option value="none">None</option>
+            </select>
+        </div>
+
+        <div class="control-group">
+            <label for="zoom-select"><i class="fas fa-search"></i> Zoom</label>
+            <select id="zoom-select" class="dropdown">
+                <option value="0.5">50%</option>
+                <option value="0.75">75%</option>
+                <option value="1" selected>100% (Real Size)</option>
+                <option value="1.25">125%</option>
+                <option value="1.5">150%</option>
+            </select>
+        </div>
+
+        <div id="custom-device-settings" class="control-group" style="display: none;">
+            <label><i class="fas fa-ruler-combined"></i> Custom Dimensions</label>
+            <div class="dimension-inputs">
+                <input type="number" id="custom-width" placeholder="Width" min="200" max="2000" value="360">
+                <span>×</span>
+                <input type="number" id="custom-height" placeholder="Height" min="400" max="3000" value="780">
+                <span>px</span>
+            </div>
+            <small class="hint">Device pixel ratio: <span id="pixel-ratio">1.0</span></small>
+        </div>
+
+        <div class="button-group">
+            <button id="open-preview" class="btn-primary">
+                <i class="fas fa-external-link-square-alt"></i> Open Preview
+            </button>
+            <button id="toggle-orientation" class="btn-secondary">
+                <i class="fas fa-undo"></i> Rotate
+            </button>
+        </div>
+
+        <div class="footer">
+            <small>Press R to rotate, Ctrl+R to reload • Real device dimensions</small>
+        </div>
+    </div>
+
+    <script src="devices.js"></script>
+    <script src="popup.js"></script>
+</body>
+
+</html>
